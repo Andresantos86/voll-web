@@ -1,4 +1,4 @@
-//import { makeObservable, observable, action } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 
 interface IUsuario {
     email: string,
@@ -6,26 +6,26 @@ interface IUsuario {
 }
 
 class AutenticaStore {
-    // estaAutenticado = false;
+     estaAutenticado = false;
      usuario: IUsuario = {email: "", token: ""};
 
-    // constructor() {
-    //     makeObservable(this, {
-    //         estaAutenticado: observable,
-    //         usuario: observable,
-    //         login: action,
-    //         logout: action
-    //     })
-    // }
+    constructor() {
+        makeObservable(this, {
+            estaAutenticado: observable,
+            usuario: observable,
+            login: action,
+            logout: action
+        })
+    }
 
     login({email, token} : IUsuario) {
-       // this.estaAutenticado = true;
-       // this.usuario = {email, token};
+       this.estaAutenticado = true;
+       this.usuario = {email, token};
     }
 
     logout() {
-    //     this.estaAutenticado = false;
-    //     this.usuario = {email: "", token: ""}
+        this.estaAutenticado = false;
+        this.usuario = {email: "", token: ""}
      }
 }
 
